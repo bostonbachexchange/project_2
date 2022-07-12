@@ -18,13 +18,13 @@ As a student, see a login screen where you login to the app or click sign up to 
 --Sign Up
 As a student, click on the Sign Up link to open the sign up page. The student will create a username and password and then be returned to the Login Page. 
 
---Index/Home Page
+--Main/Home Page
 As a student, see that you are signed in. See an option to sign out. 
     See a link to your profile information. Clicking on the Edit Profile link will take you to the Edit Profile Page. 
 
     As a student, See a link to your assignments. On click, a list of assignments will display. 
 
-![wireframe four](/assets/wireframes/home.png)
+![wireframe four](/assets/wireframes/main_page.png)
 
 
 --Edit Profile Page
