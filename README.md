@@ -6,10 +6,14 @@ Piano Lesson Assignment Tracker
 
 --Login Screen
  
+  ![wireframe two](/assets/wireframes/login.png)
+
+
 As a student, see a login screen where you login to the app or click sign up to create a username and password. If you already have a username and password, you can enter your username and password. Signing in will take you to your home page. 
  
- ![wireframe two](/assets/wireframes/login.png)
+
  ![wireframe three](/assets/wireframes/sign_up.png)
+
 
 --Sign Up
 As a student, click on the Sign Up link to open the sign up page. The student will create a username and password and then be returned to the Login Page. 
@@ -37,8 +41,10 @@ Clicking on the edit profile link will show a form to update profile information
      skill-level(number between 1-10)
 User returns to home page on submit. 
 
+
  ![wireframe five](/assets/wireframes/profile_edit.png)
-X
+
+
 --Assignments Page
 As a Student see a list of all assignments. Student can click ADD or REMOVE to create a new assignment or Delete an assignment. Clicking on an assignment will take you to an assignment show page. Each assignment will show:
     Teacher: Teacher who gave the assignment
@@ -61,11 +67,10 @@ Goals:
 
 Stretch:
 
-
 complete ERDs for both models AND user model (3 models in total)
 
-![ERD](/assets/wireframes/ERD/ERD.png)
-![Table Routes](/assets/wireframes/routes/routes_table.png)
+![ERD](/assets/ERD/ERD.png)
+![Table Routes](/assets/routes/routes_table.png)
 
 at least 15 user stories
 
