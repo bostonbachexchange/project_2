@@ -80,6 +80,7 @@ a list of APIs or NPM packages or an overview of the seeded data (which requires
 
 npm
 express
+dotenv
 mongoose
 morgan
 liquid
