@@ -1,0 +1,64 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div class="container-md">
+
+    <form action="/assignments/{{assignment._id}}?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Update {{assignment.date}}</legend>
+            <label class="form-label">Teacher: </label>
+            <input 
+                type="text" 
+                name="name"
+                class="form-control" 
+                placeholder="enter teacher name" 
+                value="{{assignment.teacher}}"
+            > 
+            <label class="form-label">Date: </label>
+            <input 
+                type="date" 
+                name="date"
+                class="form-control" 
+                value="{{assignment.date}}"
+            > 
+            <label class="form-label">Technique: </label>
+            <input 
+                type="text" 
+                name="technique"
+                class="form-control" 
+                placeholder="Scales, Arpeggios" 
+                value="{{assignment.technique}}"
+            > 
+            <label class="form-label">Sight Reading: </label>
+            <input 
+                type="text" 
+                name="sight_reading"
+                class="form-control" 
+                placeholder="Book: pages a-z" 
+                value="{{assignment.sight_reading}}"
+            > 
+            <label class="form-label">Book: </label>
+            <input 
+                type="text" 
+                name="book"
+                class="form-control" 
+                placeholder="WTC Book I by J.S. Bach" 
+                value="{{assignment.book}}"
+            > 
+            <label class="form-label">Notes/Comments: </label>
+            <input 
+                type="text" 
+                name="notes"
+                class="form-control" 
+                placeholder="Notes" 
+                value="{{assignment.notes}}"
+            > 
+        </fieldset>
+        <div class="field-group">
+            <input type="submit" value="Edit {{assignment.date}}" class="btn btn-success"> 
+            <a href="/assignments" class="btn btn-warning">Nevermind</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
