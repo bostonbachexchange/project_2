@@ -2,11 +2,17 @@
 
 {% block content %}
 <form action="/assignments" method="POST">
-    <input type="text" name="teacher" placeholder="">
+    <label for="teacher">Teacher: </label>
+    <input type="text" name="teacher" placeholder="Beethoven">
+    <label for="date">Date: </label>
     <input type="date" name="date" placeholder="">
-    <input type="text" name="dechnique" placeholder="">
-    <input type="text" name="sight_reading" placeholder="">
-    <input type="text" name="rook" placeholder="">
-    <input type="text" name="notes" placeholder="">
+    <label for="technique">Technique: </label>
+    <input type="text" name="technique" placeholder="Etudes, Scales, Exercises">
+    <label for="sight_reading">Sight Reading: </label>
+    <input type="text" name="sight_reading" placeholder="Faber Level 1">
+    <label for="book">Book: </label>
+    <input type="text" name="book" placeholder="">
+    <label for="notes">Notes/Comments: </label>
+    <input type="text" name="notes" placeholder="notes">
 </form>
 {% endblock %}
