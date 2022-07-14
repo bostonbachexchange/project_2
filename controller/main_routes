@@ -2,7 +2,7 @@ const express = require('express')
 // making a router
 const router = express.Router()
 // importing Assignment model to access database
- const Assignment = require('../models/assignment')
+const Assignment = require('../models/assignment')
 
 // DELETE - Delete
 // router.delete('/:id', (req, res) => {
@@ -54,101 +54,113 @@ const router = express.Router()
 // })
 
 // POST - Create
-router.post('/', (req, res) => {
-    // now that we have user specific fruits, we'll add a username upon creation
-    // remember, when we login, we saved the username to the session object
-    // using the ._id to set the owner field
-    req.body.owner = req.session.userID
+// router.post('/', (req, res) => {
+//     // now that we have user specific fruits, we'll add a username upon creation
+//     // remember, when we login, we saved the username to the session object
+//     // using the ._id to set the owner field
+//     req.body.username = req.session.username
 
-    // Fruit.create(req.body)
-    //     .then(fruit => {
-    //         console.log(fruit)
-    //         // res.json(fruit)
-    //         res.redirect('/fruits')
-    //     })
-    //     .catch(err => {
-    //         res.json(err)
-    //     })
-})
+//     Assignment.create(req.body)
+//         .then(assignment => {
+//             console.log(assignment)
+//             // res.json(fruit)
+//             res.redirect('/main')
+//         })
+//         .catch(err => {
+//             res.json(err)
+//         })
+// })
 
 // GET - /main
 // localhost:3000/fruits
 router.get('/', (req, res) => {
-    // if userPro
-    res.render('main/home')
     // mongoose to find all fruits
-    // Fruit.find({})
-    // // return fruits as json
-    //     .then(fruits => {
-    //         // res.json(fruit)
-    //         res.render('fruits/index', { fruits })
-    //     })
-        // .catch(err => {
-        //     res.json(err)
-        // })
+    Assignment.find({})
+    // return fruits as json
+        .then(assignments => {
+            // res.json(assignment)
+            res.render('main/index', { assignments })
+        })
+        .catch(err => {
+            res.json(err)
+        })
 })
 
-// router.get('/mine', (req, res) => {
-//     // find the fruits associated with the logged in user
-//     Fruit.find({ owner: req.session.userID })
-//         .then(fruits => {
-//             res.render('fruits/index', { fruits })
+//  router.get('/mine', (req, res) => {
+//      // find the fruits associated with the logged in user
+//     Assignment.find({ username: req.session.username })
+//         .then(assignments => {
+//             res.render('main/home', { assignments })
 //         })
 //         .catch(error => {
 //             console.log(error)
 //             res.json({ error })
 //         })
 // })
+
 // seed route has been moved to models/seed.js
 // insert many items into our database with just going to this route
-// localhost:3000/fruits/seed
-// router.get('/seed', (req, res) => {
-//     // starting data
-//     const startFruits = [
+// localhost:3000/main/seed
+router.get('/seed', (req, res) => {
+    // starting data
+//     const startAssignments = [
 //     { name: "Orange", color: "orange", readyToEat: false },
 //     { name: "Grape", color: "purple", readyToEat: false },
 //     { name: "Banana", color: "orange", readyToEat: false },
 //     { name: "Strawberry", color: "red", readyToEat: false },
 //     { name: "Coconut", color: "brown", readyToEat: false },
 //   ]
+    const startAssignments = [
+        { teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/13/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+    ]
 
-//   // delete if we have fruits
-//   Fruit.deleteMany({})
-// 		// insert data
-// 		.then(() => {
-//             Fruit.create(startFruits)
-//             // return this data as json to view
-//             .then(data => {
-//                 res.json(data)
-//             })
-//             // .catch(err => console.error(err))
-// 		    .catch(console.error)
-//         })
+  // delete if we have fruits
+  Assignment.deleteMany({})
+		// insert data
+		.then(() => {
+            Assignment.create(startAssignments)
+            // return this data as json to view
+            .then(data => {
+                res.json(data)
+            })
+            // .catch(err => console.error(err))
+		    .catch(console.error)
+        })
   
   
-//})
+})
 
 // GET - Show
 // localhost:3000/fruits/:id <- change with the id being passed in
-// router.get('/:id', (req, res) => {
-//     const fruitId = req.params.id
+router.get('/:id', (req, res) => {
+    const assignmentId = req.params.id
 
-//     Fruit.findById(fruitId)
-//     // populate our User models fields
-//     // comment has an author field and that is the ref to the User model
-//     // always going to be a string of the value you want to populate
-//     // this also has to be another model
-//         .populate('comments.author')
-//         // send back some json
-//         .then(fruit => {
-//             // res.json(fruit)
-//             const userId = req.session.userId
-//             const username = req.session.username
-//             res.render('fruits/show', { fruit, userId, username })
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
+    Assignment.findById(assignmentId)
+    // populate our User models fields
+    // comment has an author field and that is the ref to the User model
+    // always going to be a string of the value you want to populate
+    // this also has to be another model
+        //.populate('comments.author')
+        // send back some json
+        .then(assignments => {
+             res.json(assignments)
+            // const userId = req.session.userId
+            // const username = req.session.username
+            // res.render('fruits/show', { fruit, userId, username })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 module.exports = router

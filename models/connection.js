@@ -25,4 +25,4 @@ mongoose.connection
     // using console.error to see that error
     .on('error', err => console.error(err) )
 
-module.exports = mongoose
+module.exports = mongoose  

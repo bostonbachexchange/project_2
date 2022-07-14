@@ -1,0 +1,11 @@
+ <!-- assignment show page, but maybe the same as the home page? -->
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div>
+    {% for assignment in assignments %}
+    <p>Assignment name: {{assignment.notes}}</p>
+    <p>Assignment date: {{assignment.date}}</p>
+    {% endfor %}
+</div>
+{% endblock %}
