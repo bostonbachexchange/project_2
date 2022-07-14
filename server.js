@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const mainRoutes = require('./controller/main_routes')
+const profileRoutes = require('./controller/profile_routes')
 const assignmentRoutes = require('./controller/assignment_routes')
 const userRoutes = require('./controller/user_routes')
 
@@ -29,6 +30,7 @@ app.use(
 //app.use('/main', mainRoutes)
 app.use('/users', userRoutes)
 app.use('/assignments', assignmentRoutes)
+app.use('/profile', profileRoutes)
 
 app.get('/', (req, res) => {
     //res.redirect('/main')

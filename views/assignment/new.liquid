@@ -2,17 +2,32 @@
 
 {% block content %}
 <form action="/assignments" method="POST">
-    <label for="teacher">Teacher: </label>
-    <input type="text" name="teacher" placeholder="Beethoven">
-    <label for="date">Date: </label>
-    <input type="date" name="date" placeholder="">
-    <label for="technique">Technique: </label>
-    <input type="text" name="technique" placeholder="Etudes, Scales, Exercises">
-    <label for="sight_reading">Sight Reading: </label>
-    <input type="text" name="sight_reading" placeholder="Faber Level 1">
-    <label for="book">Book: </label>
-    <input type="text" name="book" placeholder="">
-    <label for="notes">Notes/Comments: </label>
-    <input type="text" name="notes" placeholder="notes">
+    <div class="form-group">
+        <label for="teacher">Teacher: </label>
+        <input type="text" name="teacher" placeholder="Beethoven">
+    </div>
+    <div class="form-group">
+        <label for="date">Date: </label>
+        <input type="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="technique">Technique: </label>
+        <input type="text" name="technique" placeholder="Etudes, Scales, Exercises">
+    </div>
+    <div class="form-group">
+        <label for="sight_reading">Sight Reading: </label>
+        <input type="text" name="sight_reading" placeholder="Faber Level 1">
+    </div>
+    <div class="form-group">
+        <label for="book">Book: </label>
+        <input type="text" name="book" placeholder="Faber Level 1 Lesson">
+    </div>
+    <div class="form-group">
+        <label for="notes">Notes/Comments: </label>
+        <input type="text" name="notes" placeholder="notes">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>
 {% endblock %}
