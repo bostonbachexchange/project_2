@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const mainRoutes = require('./controller/main_routes')
+const assignmentRoutes = require('./controller/assignment_routes')
 const userRoutes = require('./controller/user_routes')
 
 const app = require('liquid-express-views')(express())
@@ -25,11 +26,13 @@ app.use(
     })
 )
 
-app.use('/main', mainRoutes)
+//app.use('/main', mainRoutes)
 app.use('/users', userRoutes)
+app.use('/assignments', assignmentRoutes)
 
 app.get('/', (req, res) => {
-    res.redirect('/main')
+    //res.redirect('/main')
+    res.redirect('/assignments')
 })
 
 const PORT = process.env.PORT   

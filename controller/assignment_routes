@@ -72,14 +72,14 @@ const Assignment = require('../models/assignment')
 // })
 
 // GET - /main
-// localhost:3000/fruits
+// localhost:3000/assignment/index
 router.get('/', (req, res) => {
     // mongoose to find all fruits
     Assignment.find({})
     // return fruits as json
         .then(assignments => {
             // res.json(assignment)
-            res.render('main/home', { assignments })
+            res.render('assignment/index', { assignments })
         })
         .catch(err => {
             res.json(err)
@@ -142,12 +142,12 @@ router.get('/:id', (req, res) => {
     // this also has to be another model
         //.populate('comments.author')
         // send back some json
-        .then(assignments => {
-             res.json(assignments)
-            // const userId = req.session.userId
-            // const username = req.session.username
-            // res.render('fruits/show', { fruit, userId, username })
-        })
+        .then(assignment => {
+        //   res.json(assignment)
+        //     const userId = req.session.userId
+        //     const username = req.session.username
+             res.render('assignment/show', { assignment})
+         })
         .catch(err => {
             res.json(err)
         })
