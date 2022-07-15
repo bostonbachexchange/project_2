@@ -1,18 +1,21 @@
- <!-- assignment show page, but maybe the same as the home page? -->
- {% layout 'layout.liquid' %}
+<script>
+    const newDate = {{assignment.date}}
+</script>
+{% layout 'layout.liquid' %}
 
- {% block content %}
- <div>
-     <p>Teacher: {{assignment.teacher}}</p>
-     <p>Date: {{assignment.date}}</p>
-     <p>Technique: {{assignment.technique}}</p>
-     <p>Sight Reading: {{assignment.sight_reading}}</p>
-     <p>Book: {{assignment.book}}</p>
-     <p>Notes: {{assignment.notes}}</p>
-     <a href="/assignments/{{assignment._id}}/edit">Edit Assignment</a>
-     <a href="/assignments">Back</a>
- </div>
- <form action="/assignments/{{assignment._id}}?_method=DELETE" method="POST">
+{% block content %}
+<div>
+    <p>Teacher: {{assignment.teacher}}</p>
+    <p>Date: {{assignment.date}}</p>
+    <p>Technique: {{assignment.technique}}</p>
+    <p>Sight Reading: {{assignment.sight_reading}}</p>
+    <p>Book: {{assignment.book}}</p>
+    <p>Notes: {{assignment.notes}}</p>
+    <a href="/assignments/{{assignment._id}}/edit">Edit Assignment</a>
+    <a href="/assignments">Back</a>
+</div>
+<form action="/assignments/{{assignment._id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
- </form>
- {% endblock %}
+</form>
+
+{% endblock %}

@@ -8,7 +8,7 @@
             <label class="form-label">Teacher: </label>
             <input 
                 type="text" 
-                name="name"
+                name="teacher"
                 class="form-control" 
                 placeholder="enter teacher name" 
                 value="{{assignment.teacher}}"
@@ -16,7 +16,7 @@
             <label class="form-label">Instrument: </label>
             <input 
                 type="text" 
-                name="name"
+                name="instrument"
                 class="form-control" 
                 placeholder="🎹" 
                 value="{{assignment.instrument}}"
@@ -53,13 +53,13 @@
                 value="{{assignment.book}}"
             > 
             <label class="form-label">Notes/Comments: </label>
-            <input 
+            <textarea 
                 type="text" 
                 name="notes"
                 class="form-control" 
                 placeholder="Notes" 
                 value="{{assignment.notes}}"
-            > 
+            ></textarea> 
         </fieldset>
         <div class="field-group">
             <input type="submit" value="Update" class="btn btn-success"> 

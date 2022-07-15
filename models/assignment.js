@@ -5,7 +5,7 @@ const { Schema, model } = mongoose
 const assignmentSchema = new Schema({
     instrument: String,
     teacher: String,
-    date: Date,
+    date: { type: Date, default: Date },
     technique: String,
     sight_reading: String,
     book: String,
@@ -19,5 +19,6 @@ const assignmentSchema = new Schema({
 })
 
 const Assignment = model('Assignment', assignmentSchema)
+
 
 module.exports = Assignment
