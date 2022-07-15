@@ -99,34 +99,34 @@ router.get('/', (req, res) => {
 // seed route has been moved to models/seed.js
 // insert many items into our database with just going to this route
 // localhost:3000/main/seed
-router.get('/seed', (req, res) => {
-    const startAssignments = [
-        { instrument: "🎹",teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-    ]
+// router.get('/seed', (req, res) => {
+//     const startAssignments = [
+//         { instrument: "🎹",teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//         { teacher: "Beethoven", date: "07/13/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+//     ]
 
-  // delete if we have fruits
-  Assignment.deleteMany({})
-		// insert data
-		.then(() => {
-            Assignment.create(startAssignments)
-            // return this data as json to view
-            .then(data => {
-                res.json(data)
-            })
-            // .catch(err => console.error(err))
-		    .catch(console.error)
-        })
-})
+//   // delete if we have fruits
+//   Assignment.deleteMany({})
+// 		// insert data
+// 		.then(() => {
+//             Assignment.create(startAssignments)
+//             // return this data as json to view
+//             .then(data => {
+//                 res.json(data)
+//             })
+//             // .catch(err => console.error(err))
+// 		    .catch(console.error)
+//         })
+// })
 
 // GET - Show
 // localhost:3000/fruits/:id <- change with the id being passed in
