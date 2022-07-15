@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
+const Profile = require('../models/profile')
 
 const router = express.Router()
 
@@ -36,7 +37,18 @@ router.post('/login', async (req, res) => {
                     req.session.userId = user._id
 
                     console.log('this is the session after login', req.session)
-                    res.redirect('/main')
+                    ////// checks to see if profile exist /////////
+                    const profile = await Profile.find({"username": username});
+                    if (profile) {
+                        //console.log(profile)
+                        console.log("username", username)
+                        console.log('profile exist', profile)
+                        res.redirect('/assignments')
+                    } 
+                     else { console.log('no profile exist')
+                     console.log('no profile exist')
+                     res.redirect('/profile/new')
+                    }
                 } else {
                     res.json({ error: 'username or password incorrect' })
                 }
@@ -65,7 +77,7 @@ router.post('/login', async (req, res) => {
                     req.session.loggedIn = true
                     req.session.userId = user._id
                     console.log('this is the session after login', req.session)
-                    res.redirect('/main')
+                    res.redirect('/assignments.index')
                 } else {
                     res.json({ error: 'username or password incorrect'})
                 }
@@ -83,7 +95,7 @@ router.post('/login', async (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.destroy(ret => {
         console.log('this is returned from req.session.destroy', ret)
-        res.redirect('/main')
+        res.redirect('/users/login')
     })
 })
 

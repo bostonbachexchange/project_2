@@ -74,19 +74,16 @@ router.post('/', (req, res) => {
 // localhost:3000/assignment/index
 router.get('/', (req, res) => {
     // mongoose to find all fruits
-    
     Assignment.find({})
     // return fruits as json
         .then(assignments => {
-            let formattedDate = assignments.date
             // res.json(assignment)
-            res.render('assignment/index', { assignments, formattedDate })
+            res.render('assignment/index', { assignments })
         })
         .catch(err => {
             res.json(err)
         })
 })
-
 //  router.get('/mine', (req, res) => {
 //      // find the fruits associated with the logged in user
 //     Assignment.find({ username: req.session.username })
