@@ -6,10 +6,8 @@
     <div class="row">
         {% for assignment in assignments %}
             <div class="card" style="width: 18rem">
-
-                <h5 class="card-header">Lessons</h5>
+                <h5 class="card-header">{{assignment.instrument}} Lesson with {{assignment.teacher}}</h5>
                 <div class="card-body">
-              
                     <a href="/assignments/{{assignment._id}}" class="btn btn-info">{{assignment.date}}</a>
                     <p>{{assignment._id}}</p>
                 </div>

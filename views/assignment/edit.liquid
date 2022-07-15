@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="container-md">
-
     <form action="/assignments/{{assignment._id}}?_method=PUT" method="POST">
         <fieldset>
             <legend>Update {{assignment.date}}</legend>
@@ -13,6 +12,14 @@
                 class="form-control" 
                 placeholder="enter teacher name" 
                 value="{{assignment.teacher}}"
+            > 
+            <label class="form-label">Instrument: </label>
+            <input 
+                type="text" 
+                name="name"
+                class="form-control" 
+                placeholder="🎹" 
+                value="{{assignment.instrument}}"
             > 
             <label class="form-label">Date: </label>
             <input 
@@ -56,7 +63,7 @@
         </fieldset>
         <div class="field-group">
             <input type="submit" value="Update" class="btn btn-success"> 
-            <a href="/assignments" class="btn btn-warning">Nevermind</a>
+            <a href="/assignments/{{assignment._id}}" class="btn btn-warning">Nevermind</a>
         </div>
     </form>
 </div>

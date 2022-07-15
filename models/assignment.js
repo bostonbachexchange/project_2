@@ -3,6 +3,7 @@ const mongoose = require('./connection')
 const { Schema, model } = mongoose
 
 const assignmentSchema = new Schema({
+    instrument: String,
     teacher: String,
     date: Date,
     technique: String,

@@ -5,17 +5,17 @@ const router = express.Router()
 const Assignment = require('../models/assignment')
 
 // DELETE - Delete
-// router.delete('/:id', (req, res) => {
-//     const fruitId = req.params.id
+ router.delete('/:id', (req, res) => {
+     const assignmentId = req.params.id
 
-//     Fruit.findByIdAndRemove(fruitId)
-//         .then(fruit => {
-//             res.redirect('/fruits')
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
+     Assignment.findByIdAndRemove(assignmentId)
+         .then(() => {
+             res.redirect('/assignments')
+         })
+         .catch(err => {
+             res.json(err)
+         })
+ })
 
 // GET route for displaying an update form
 router.get('/:id/edit', (req, res) => {
@@ -32,11 +32,12 @@ router.get('/:id/edit', (req, res) => {
 
 // PUT - Update
 router.put('/:id', (req, res) => {
-    const fruitId = req.params.id
+    const assignmentId = req.params.id
 
-    Assignment.findByIdAndUpdate(fruitId, req.body, { new: true })
-        .then(fruit => {
-            res.redirect(`/fruits/${fruit._id}`)
+    Assignment.findByIdAndUpdate(assignmentId, req.body, { new: true })
+        .then(assignment => {
+            console.log(`${assignment._id}`);
+            res.redirect(`/assignments/${assignment._id}`)
         })
         .catch(err => {
             res.json(err)
@@ -101,7 +102,7 @@ router.get('/', (req, res) => {
 // localhost:3000/main/seed
 router.get('/seed', (req, res) => {
     const startAssignments = [
-        { teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
+        { instrument: "🎹",teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
         { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
         { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
         { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
