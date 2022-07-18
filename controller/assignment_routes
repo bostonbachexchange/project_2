@@ -53,8 +53,13 @@ router.get('/new', (req, res) => {
     // idk const username = req.session.username
     // idk const logginIn = req.session.loggedIn
     console.log("req.session /new", req.session.loggedIn)
-
-    res.render('assignment/new')
+    const loggedIn = req.session.loggedIn
+    console.log("loggedIn", loggedIn)
+    if (req.session.loggedIn) {
+        res.render('assignment/new', { loggedIn})
+    } else {
+        res.redirect("/users/login")
+    }
 })
 
 // POST - Create
@@ -78,7 +83,13 @@ router.post('/', (req, res) => {
 // GET - /home
 router.get('/home', (req, res) => {
     console.log("req.session /home", req.session.loggedIn)
-    res.render('assignment/home')
+    const loggedIn = req.session.loggedIn
+    console.log("loggedIn /", loggedIn)   
+    if (req.session.loggedIn) {
+        res.render('assignment/home', { loggedIn })
+    } else {
+        res.redirect("/users/login")
+    }
 })
 
 // GET - /assignments
@@ -86,6 +97,8 @@ router.get('/home', (req, res) => {
 router.get('/', (req, res) => {
     //req.body.session = req.body.session
     console.log("req.session /", req.session.loggedIn)
+    const loggedIn = req.session.loggedIn
+    console.log("loggedIn /", loggedIn)
     if (req.session.loggedIn) {
     // mongoose to find all assignments
     Assignment.find({})
@@ -93,28 +106,34 @@ router.get('/', (req, res) => {
         .then(assignments => {
             // res.json(assignment)
             //res.render('assignment/index', { assignments })
-            res.render('assignment/home', { assignments })
+            res.render('assignment/home', { assignments, loggedIn })
         })
         .catch(err => {
             res.json(err)
         })
-} else {
-    res.redirect("/users/login")
-}
+    } else {
+        res.redirect("/users/login")
+    }
 })
 router.get('/index', (req, res) => {
     // mongoose to find all fruits
     console.log("req.session", req.session.loggedIn)
+    const loggedIn = req.session.loggedIn
+    console.log("req.session /", loggedIn)
+    if (req.session.loggedIn) {
     Assignment.find({})
     // return fruits as json
         .then(assignments => {
             // res.json(assignment)
             //res.render('assignment/index', { assignments })
-            res.render('assignment/index', { assignments })
+            res.render('assignment/index', { assignments, loggedIn })
         })
         .catch(err => {
             res.json(err)
         })
+    } else {
+        res.redirect("/users/login")
+    }
 })
 
 //  router.get('/mine', (req, res) => {

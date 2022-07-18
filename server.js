@@ -33,7 +33,8 @@ app.use('/profile', profileRoutes)
 
 app.get('/', (req, res) => {
     //res.redirect('/main')
-    res.redirect('/assignments')
+    const loggedIn = req.session.loggedIn
+    res.redirect('/assignments', loggedIn)
 })
 
 const PORT = process.env.PORT   

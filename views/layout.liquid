@@ -18,19 +18,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Check if user is logged in, if TRUE, show -->
-                <a href="/profile/show" class="nav-link text-light">Profile</a> 
-                <!-- Check if user is logged in, if TRUE, show -->
-                <a href="/assignments/new" class="nav-link text-light">New Assignment</a> 
-                <!-- Check if user is logged in, if TRUE, show -->
-                <a href="/assignments/index" class="nav-link text-light">My Assignments</a>  
                 <!-- <a href="https://bostonbachexchange.github.io/project_1/?fbclid=IwAR0TTfazqvvCpXh4QPVH7Y4dEoZO0O_Ci3vyXD0PFhVT5N_Q6EFoqHuW8jY" class="nav-link text-light">Games</a> -->
-                <!--Check if user is logined in, if logged in logged in FALSE, show  -->
-                <a href="/users/signup" class="nav-link text-light">Sign Up</a> 
-                <!--Check if user is logged in, if logged in logged in FALSE, show  -->
-                <a href="/users/login" class="nav-link text-light">Log in</a>
+
                 <!--Check if user is logined in, if logged in logged in TRUE, show  -->
-                <a href="/users/logout" class="nav-link text-light">Log out</a>  
+                {% if loggedIn %}
+                <!-- Check if user is logged in, if TRUE, show -->
+                    <a href="/profile/show" class="nav-link text-light">Profile</a> 
+                <!-- Check if user is logged in, if TRUE, show -->
+                    <a href="/assignments/new" class="nav-link text-light">New Assignment</a> 
+                <!-- Check if user is logged in, if TRUE, show -->
+                    <a href="/assignments/index" class="nav-link text-light">My Assignments</a>  
+                    <a href="/users/logout" class="nav-link text-light">Log out</a> 
+                {% else %}
+                <!--Check if user is logged in, if logged in logged in FALSE, show  -->
+                    <a href="/users/login" class="nav-link text-light">Log in</a>
+                <!--Check if user is logined in, if logged in logged in FALSE, show  -->
+                    <a href="/users/signup" class="nav-link text-light">Sign Up</a> 
+                {% endif %}
             </div>
         </div>
     </nav>
