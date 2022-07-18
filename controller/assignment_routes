@@ -3,6 +3,9 @@ const express = require('express')
 const router = express.Router()
 // importing Assignment model to access database
 const Assignment = require('../models/assignment')
+// Do I need this?
+const User = require('../models/user')
+
 const { route } = require('./user_routes')
 
 // DELETE - Delete
@@ -49,6 +52,8 @@ router.put('/:id', (req, res) => {
 router.get('/new', (req, res) => {
     // idk const username = req.session.username
     // idk const logginIn = req.session.loggedIn
+    console.log("req.session /new", req.session.loggedIn)
+
     res.render('assignment/new')
 })
 
@@ -58,7 +63,7 @@ router.post('/', (req, res) => {
     // remember, when we login, we saved the username to the session object
     // using the ._id to set the owner field
     req.body.username = req.session.username
-
+    //req.body.session
     Assignment.create(req.body)
         .then(assignment => {
             console.log(assignment)
@@ -72,13 +77,17 @@ router.post('/', (req, res) => {
 
 // GET - /home
 router.get('/home', (req, res) => {
+    console.log("req.session /home", req.session.loggedIn)
     res.render('assignment/home')
 })
 
 // GET - /assignments
 // localhost:3000/assignment/index
 router.get('/', (req, res) => {
-    // mongoose to find all fruits
+    //req.body.session = req.body.session
+    console.log("req.session /", req.session.loggedIn)
+    if (req.session.loggedIn) {
+    // mongoose to find all assignments
     Assignment.find({})
     // return fruits as json
         .then(assignments => {
@@ -89,9 +98,13 @@ router.get('/', (req, res) => {
         .catch(err => {
             res.json(err)
         })
+} else {
+    res.redirect("/users/login")
+}
 })
 router.get('/index', (req, res) => {
     // mongoose to find all fruits
+    console.log("req.session", req.session.loggedIn)
     Assignment.find({})
     // return fruits as json
         .then(assignments => {

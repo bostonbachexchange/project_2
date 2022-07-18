@@ -1,8 +1,7 @@
 const express = require('express')
-const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const Profile = require('../models/profile')
-
+const User = require('../models/user')
 const router = express.Router()
 
 router.get('/signup', (req, res) => {
@@ -98,7 +97,6 @@ router.get('/login', (req, res) => {
 ///logout
 router.get('/logout', (req, res) => {
     ////// check if loggin in false, go to login page////
-
     req.session.destroy(ret => {
         console.log('this is returned from req.session.destroy', ret)
         res.redirect('/users/login')
