@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 // importing Assignment model to access database
 const Assignment = require('../models/assignment')
+const { route } = require('./user_routes')
 
 // DELETE - Delete
  router.delete('/:id', (req, res) => {
@@ -49,7 +50,6 @@ router.get('/new', (req, res) => {
     // idk const username = req.session.username
     // idk const logginIn = req.session.loggedIn
     res.render('assignment/new')
-    // res.render('fruits/new', {username, loggedIn})
 })
 
 // POST - Create
@@ -70,7 +70,12 @@ router.post('/', (req, res) => {
         })
 })
 
-// GET - /assignment
+// GET - /home
+router.get('/home', (req, res) => {
+    res.render('assignment/home')
+})
+
+// GET - /assignments
 // localhost:3000/assignment/index
 router.get('/', (req, res) => {
     // mongoose to find all fruits
@@ -78,12 +83,27 @@ router.get('/', (req, res) => {
     // return fruits as json
         .then(assignments => {
             // res.json(assignment)
+            //res.render('assignment/index', { assignments })
+            res.render('assignment/home', { assignments })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+router.get('/index', (req, res) => {
+    // mongoose to find all fruits
+    Assignment.find({})
+    // return fruits as json
+        .then(assignments => {
+            // res.json(assignment)
+            //res.render('assignment/index', { assignments })
             res.render('assignment/index', { assignments })
         })
         .catch(err => {
             res.json(err)
         })
 })
+
 //  router.get('/mine', (req, res) => {
 //      // find the fruits associated with the logged in user
 //     Assignment.find({ username: req.session.username })
@@ -97,39 +117,11 @@ router.get('/', (req, res) => {
 // })
 
 // seed route has been moved to models/seed.js
-// insert many items into our database with just going to this route
-// localhost:3000/main/seed
-// router.get('/seed', (req, res) => {
-//     const startAssignments = [
-//         { instrument: "🎹",teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//         { teacher: "Beethoven", date: "07/13/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-//     ]
+// npm run seed
 
-//   // delete if we have fruits
-//   Assignment.deleteMany({})
-// 		// insert data
-// 		.then(() => {
-//             Assignment.create(startAssignments)
-//             // return this data as json to view
-//             .then(data => {
-//                 res.json(data)
-//             })
-//             // .catch(err => console.error(err))
-// 		    .catch(console.error)
-//         })
-// })
 
 // GET - Show
-// localhost:3000/fruits/:id <- change with the id being passed in
+// localhost:3000/assignments/:id <- change with the id being passed in
 router.get('/:id', (req, res) => {
     const assignmentId = req.params.id
 

@@ -1,0 +1,14 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+    <div>
+        <p>Name: {{profile.name}}</p>
+        <p>Email: {{profile.email}}</p>
+        <p>Phone Number: {{profile.number}}</p>
+        <p>Age: {{profile.age}}</p>
+        <p>Date of Birth: {{profile.dob}}</p>
+        <p>Instruments: {{profile.instruments}}</p>
+        <!-- <a href="/profile/{{profile._id}}/edit">Edit Profile</a> -->
+        <a href="/assignments">Back</a>
+    </div>
+{% endblock %}

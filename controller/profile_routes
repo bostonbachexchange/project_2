@@ -50,7 +50,20 @@ router.get('/new', (req, res) => {
     // idk const username = req.session.username
     // idk const logginIn = req.session.loggedIn
     res.render('profile/new')
+})
+////temporary////
+router.get('/show', (req, res) => {
+    Profile.findOne({})
+    .then(profile => {
 
+    
+    // idk const username = req.session.username
+    // idk const logginIn = req.session.loggedIn
+    res.render('profile/show', { profile })
+    })
+    .catch(err => {
+        res.json(err)
+    })
 })
 // POST - Create
 router.post('/', (req, res) => {
