@@ -9,32 +9,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- link for css -->
     <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&family=Pathway+Gothic+One&family=Splash&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a href="/assignments" class="navbar-brand">Musica Vida</a>
+        <a href="/assignments" class="navbar-brand" id="logo">🎹 Musica Vida</a>
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- <a href="https://bostonbachexchange.github.io/project_1/?fbclid=IwAR0TTfazqvvCpXh4QPVH7Y4dEoZO0O_Ci3vyXD0PFhVT5N_Q6EFoqHuW8jY" class="nav-link text-light">Games</a> -->
-
+                
                 <!--Check if user is logined in, if logged in logged in TRUE, show  -->
                 {% if loggedIn %}
+                <ul class="navbar-nav">
                 <!-- Check if user is logged in, if TRUE, show -->
-                    <a href="/profile/show" class="nav-link text-light">Profile</a> 
+                    <li><a href="/profile/show" class="nav-link text-light">Profile</a></li>
                 <!-- Check if user is logged in, if TRUE, show -->
-                    <a href="/assignments/new" class="nav-link text-light">New Assignment</a> 
+                    <li><a href="/assignments/new" class="nav-link text-light">New Assignment</a></li>
                 <!-- Check if user is logged in, if TRUE, show -->
-                    <a href="/assignments/index" class="nav-link text-light">My Assignments</a>  
-                    <h2 style="color: white">{{displayName}}</h2>
-                    <a href="/users/logout" class="nav-link text-light">Log out</a> 
+                    <li><a href="/assignments/index" class="nav-link text-light">My Assignments</a></li> 
+                    <li><a href="/users/logout" style="color: white" class="nav-link text-light"><span style="color: yellow;">{{displayName}}</span> Log out</a></li>
+                </ul> 
                 {% else %}
+                <ul class="navbar-nav">
                 <!--Check if user is logged in, if logged in logged in FALSE, show  -->
-                    <a href="/users/login" class="nav-link text-light">Log in</a>
+                    <li><a href="/users/login" class="nav-link text-light">Log in</a></li>
                 <!--Check if user is logined in, if logged in logged in FALSE, show  -->
-                    <a href="/users/signup" class="nav-link text-light">Sign Up</a> 
+                    <li><a href="/users/signup" class="nav-link text-light">Sign Up</a> </li>
+                </ul>
                 {% endif %}
             </div>
         </div>

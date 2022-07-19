@@ -13,17 +13,17 @@
  db.on('open', () => {
     // array of starter fruits
     const startAssignments = [
-        { teacher: "Beethoven", date: "07/13/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
-        { teacher: "Beethoven", date: "07/13/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate' },
+        { teacher: "Beethoven", date: "07/1/2022", technique: "C Major Scale", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/2/2022", technique: "G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/3/2022", technique: "D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/4/2022", technique: "A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/5/2022", technique: "E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/6/2022", technique: "B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/7/2022", technique: "F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/8/2022", technique: "C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/9/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/10/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
+        { teacher: "Beethoven", date: "07/11/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
     
       ]
 

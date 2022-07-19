@@ -160,19 +160,14 @@ router.get('/index', (req, res) => {
 // localhost:3000/assignments/:id <- change with the id being passed in
 router.get('/:id', (req, res) => {
     const assignmentId = req.params.id
-
+    const loggedIn = req.session.loggedIn
+    const displayName = req.session.username
     Assignment.findById(assignmentId)
-    // populate our User models fields
-    // comment has an author field and that is the ref to the User model
-    // always going to be a string of the value you want to populate
-    // this also has to be another model
-        //.populate('comments.author')
-        // send back some json
         .then(assignment => {
         //   res.json(assignment)
         //     const userId = req.session.userId
         //     const username = req.session.username
-             res.render('assignment/show', { assignment})
+             res.render('assignment/show', { assignment, loggedIn, displayName})
          })
         .catch(err => {
             res.json(err)

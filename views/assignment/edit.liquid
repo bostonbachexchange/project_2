@@ -26,7 +26,7 @@
                 type="date" 
                 name="date"
                 class="form-control" 
-                value="{{assignment.date}}"
+                value="{{assignment.date | date: "%B %d, %Y"}}"
             > 
             <label class="form-label">Technique: </label>
             <input 

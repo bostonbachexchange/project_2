@@ -1,3 +1,42 @@
-a {
-    margin: 5px;
+body {
+    background-image: url(https://www.jwpepper.com/images/product-no-cover-2020.jpg);
+    font-family: 'Pathway Gothic One', sans-serif;
+
+}
+
+/* main {
+    background-color: rgba(240, 240, 240, .85)
+} */
+
+#logo {
+    font-family: 'Splash', cursive;
+}
+
+#profile {
+    max-width: 200px;
+    border-radius: 5px;
+    margin: 15px auto 10px auto;
+    padding-bottom: 5px;
+    background-color: rgba(240, 240, 240, .88)
+}
+
+#showAsgn {
+    max-width: 400px;
+    border-radius: 5px;
+    margin: 15px auto 10px auto;
+    padding: 15px;
+    background-color: rgba(240, 240, 240, .88);
+    text-align: left;
+}
+
+#home {
+    background-color: rgba(240, 240, 240, .85);
+    margin: 15px auto 10px auto;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 2em;
 }

@@ -2,23 +2,16 @@
 
 {% block content %}
 <div>
-    <h2 class="display-6"><script></script>All Assignments</h2>
-    <div class="row">
+    <h2>Lessons</h2>
+    <div>
         {% for assignment in assignments %}
-        <!-- // <div class="container-md"></div> -->
-            <div class="card" style="width: 15rem" >
-                <h5 class="card-header">{{assignment.instrument}} Lesson with {{assignment.teacher}}</h5>
-                <div class="card-body">
-                    <a id="date" href="/assignments/{{assignment._id}}" class="btn btn-info">{{assignment.date | date: "%B %d, %Y"}}</a>
-                    <!-- <small>{{assignment._id}}</small> -->
-                </div>
+            <div style="margin: 18px;">
+                <a href="/assignments/{{assignment._id}}" style="color: white;" class="btn bg-dark">
+                    <h5>{{assignment.instrument}} Lesson with {{assignment.teacher}}</h5>
+                    {{assignment.date | date: "%B %d, %Y"}}</a>
             </div>
-            <script>
-                const date = document.getElementById('date')
-               console.log(date)
-            </script>
-        <!-- </div> -->
-        {% endfor %}
+                {% endfor %}
+            </div>
     </div>
 </div>
 {% endblock %}
