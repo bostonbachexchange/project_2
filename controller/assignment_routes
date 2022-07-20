@@ -124,7 +124,7 @@ router.get('/', (req, res) => {
         res.redirect("/users/login")
     }
 })
-// GET - index
+// GET - users's assignments
 router.get('/index', (req, res) => {
     // mongoose to find all fruits
     console.log("req.session", req.session.loggedIn)
@@ -132,13 +132,30 @@ router.get('/index', (req, res) => {
     const displayName = req.session.username
     console.log("req.session /", loggedIn)
     if (req.session.loggedIn) {
-
-        Assignment.find({}).sort({date: -1})
-    //Assignment.find({})
-    // return fruits as json
+        //Assignment.find({"teacher": "Beethoven"}).sort({date: -1})
+        Assignment.find({username: req.session.username}).sort({date: -1})
             .then(assignments => {
-                // res.json(assignment)
-                //res.render('assignment/index', { assignments })
+                res.render('assignment/index', { assignments, loggedIn, displayName })
+            })
+            .catch(err => {
+                res.json(err)
+            })
+        } else {
+            res.redirect("/users/login")
+        }
+    })
+
+    // GET - studio assignments page
+router.get('/studio', (req, res) => {
+    // mongoose to find all fruits
+    console.log("req.session", req.session.loggedIn)
+    const loggedIn = req.session.loggedIn
+    const displayName = req.session.username
+    console.log("req.session /", loggedIn)
+    if (req.session.loggedIn) {
+        Assignment.find({"teacher": "Beethoven"}).sort({date: -1})
+        //Assignment.find({username: req.session.username}).sort({date: -1})
+            .then(assignments => {
                 res.render('assignment/index', { assignments, loggedIn, displayName })
             })
             .catch(err => {
