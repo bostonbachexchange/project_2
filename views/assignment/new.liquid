@@ -1,6 +1,15 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
+<div 
+class="container-md bg-dark" 
+style="
+    text-align: center;
+    width: 350px; 
+    color: whitesmoke;
+    margin-top: 15px;
+    border-radius: 15px;
+"> 
 <form action="/assignments" method="POST">
     <div class="form-group">
         <label for="teacher">Teacher: </label>
@@ -33,5 +42,6 @@
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+</div>
 </form>
 {% endblock %}

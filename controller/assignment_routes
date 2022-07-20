@@ -37,7 +37,6 @@ router.get('/:id/edit', (req, res) => {
 // PUT - Update
 router.put('/:id', (req, res) => {
     const assignmentId = req.params.id
-
     Assignment.findByIdAndUpdate(assignmentId, req.body, { new: true })
         .then(assignment => {
             console.log(`${assignment._id}`);

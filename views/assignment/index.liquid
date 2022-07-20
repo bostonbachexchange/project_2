@@ -2,16 +2,24 @@
 
 {% block content %}
 <div>
-    <h2>Lessons</h2>
-    <div>
-        {% for assignment in assignments %}
-            <div style="margin: 18px;">
+    <hr>
+    <h2 class="bg-dark" style="color: white; border-radius: 15px; text-align: center;">Lessons</h2>
+    <hr>
+    {% for assignment in assignments %}
+    <div class="container">
+        <div class="row bg-light">
+            <div class="col-sm-1.5" style="margin: auto; text-align: left;">
+                {{assignment.date | date: "%B %d, %Y"}}
+            </div>
+            <div style="margin: 18px;" class="col-sm-4">
                 <a href="/assignments/{{assignment._id}}" style="color: white;" class="btn bg-dark">
-                    <h5>{{assignment.instrument}} Lesson with {{assignment.teacher}}</h5>
-                    {{assignment.date | date: "%B %d, %Y"}}</a>
+                {{assignment.instrument}} Lesson with {{assignment.teacher}}</a>
             </div>
-                {% endfor %}
+            <div class="col-sm" style="margin: auto; text-align: left;">
+                {{assignment.notes}}
             </div>
+        </div>
     </div>
+            {% endfor %}
 </div>
 {% endblock %}
