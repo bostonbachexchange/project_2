@@ -132,20 +132,22 @@ router.get('/index', (req, res) => {
     const displayName = req.session.username
     console.log("req.session /", loggedIn)
     if (req.session.loggedIn) {
-    Assignment.find({})
+
+        Assignment.find({}).sort({date: -1})
+    //Assignment.find({})
     // return fruits as json
-        .then(assignments => {
-            // res.json(assignment)
-            //res.render('assignment/index', { assignments })
-            res.render('assignment/index', { assignments, loggedIn, displayName })
-        })
-        .catch(err => {
-            res.json(err)
-        })
-    } else {
-        res.redirect("/users/login")
-    }
-})
+            .then(assignments => {
+                // res.json(assignment)
+                //res.render('assignment/index', { assignments })
+                res.render('assignment/index', { assignments, loggedIn, displayName })
+            })
+            .catch(err => {
+                res.json(err)
+            })
+        } else {
+            res.redirect("/users/login")
+        }
+    })
 
 //  router.get('/mine', (req, res) => {
 //      // find the fruits associated with the logged in user
