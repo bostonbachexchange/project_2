@@ -1,12 +1,26 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-    <div id="profile" style="text-align: center; width: auto; border: 1px solid black;">
+    <div 
+        id="profile" 
+        style="
+            text-align: center; 
+            width: auto; 
+            border: 1px solid black;
+            padding: 3px 5px;
+            ">
+        <h2>Profile</h2>
+        <hr>
         <p><strong>Name:</strong> {{profile.name}}</p>
+        <hr>
         <p><strong>Email:</strong> {{profile.email}}</p>
+        <hr>
         <p><strong>Phone Number:</strong> {{profile.number}}</p>
+        <hr>
         <p><strong>Age:</strong> {{profile.age}}</p>
+        <hr>
         <p><strong>Date of Birth:</strong> {{profile.dob | date: "%B %d, %Y"}}</p>
+        <hr>
         <p><strong>Instruments:</strong> {{profile.instruments}}</p>
         <!-- <a href="/profile/{{profile._id}}/edit">Edit Profile</a> -->
         <a href="/assignments" class="btn bg-dark" style="color:aliceblue">Back</a>

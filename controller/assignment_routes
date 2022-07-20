@@ -14,7 +14,7 @@ const { route } = require('./user_routes')
 
      Assignment.findByIdAndRemove(assignmentId)
          .then(() => {
-             res.redirect('/assignments')
+             res.redirect('/assignments/index')
          })
          .catch(err => {
              res.json(err)
@@ -24,15 +24,22 @@ const { route } = require('./user_routes')
 // GET route for displaying an update form
 router.get('/:id/edit', (req, res) => {
     const assignmentId = req.params.id
-
-    Assignment.findById(assignmentId)
-        .then(assignment => {
-            res.render('assignment/edit', { assignment })
+    const loggedIn = req.session.loggedIn
+    const displayName = req.session.username
+    console.log('hello world')
+    console.log('displayName??', displayName)
+        if (req.session.loggedIn) {
+        Assignment.findById(assignmentId)
+            .then(assignment => {
+                res.render('assignment/edit', { assignment, loggedIn, displayName })
+            })
+            .catch(err => {
+                res.json(err)
+            })
+        } else {
+            res.redirect("/users/login")
+        }
         })
-        .catch(err => {
-            res.json(err)
-        })
-})
 
 // PUT - Update
 router.put('/:id', (req, res) => {
@@ -117,6 +124,7 @@ router.get('/', (req, res) => {
         res.redirect("/users/login")
     }
 })
+// GET - index
 router.get('/index', (req, res) => {
     // mongoose to find all fruits
     console.log("req.session", req.session.loggedIn)

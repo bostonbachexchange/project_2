@@ -2,24 +2,23 @@
 
 {% block content %}
 <div id="showAsgn">
-<ul>
-    <p><strong>Teacher: </strong>{{assignment.teacher}}</p>
-    <hr>
-    <p><strong>Date: </strong>{{assignment.date | date: "%B %d, %Y"}}</p>
-    <hr>
-    <p><strong>Technique: </strong>{{assignment.technique}}</p>
-    <hr>
-    <p><strong>Sight Reading: </strong>{{assignment.sight_reading}}</p>
-    <hr>
-    <p><strong>Book: </strong>{{assignment.book}}</p>
-    <hr>
-    <p><strong>Notes: </strong>{{assignment.notes}}</p>
-    <hr>
-    <a class="btn btn-secondary" href="/assignments/{{assignment._id}}/edit" style="width: 40%;">Edit Assignment</a>
-    <a style="width: 40%;" class="btn btn-secondary" href="/assignments">Back</a>
-</ul>
+    <ul>
+        <p><strong>Teacher: </strong>{{assignment.teacher}}</p>
+        <hr>
+        <p><strong>Date: </strong>{{assignment.date | date: "%B %d, %Y"}}</p>
+        <hr>
+        <p><strong>Technique: </strong>{{assignment.technique}}</p>
+        <hr>
+        <p><strong>Sight Reading: </strong>{{assignment.sight_reading}}</p>
+        <hr>
+        <p><strong>Book: </strong>{{assignment.book}}</p>
+        <hr>
+        <p><strong>Notes: </strong>{{assignment.notes}}</p>
+        <hr>
+        <a class="btn btn-secondary" href="/assignments/{{assignment._id}}/edit" style="width: 40%;">Edit Assignment</a>
+        <a style="width: 40%;" class="btn btn-secondary" href="/assignments/index">Back</a>
+    </ul>
 </div>
-
 <form action="/assignments/{{assignment._id}}?_method=DELETE" method="POST" style="margin-right: 25%; margin-bottom: 15px; text-align: end;">
     <input type="submit" value="Delete" >
 </form>

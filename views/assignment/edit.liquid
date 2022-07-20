@@ -1,14 +1,7 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-<div 
-class="container-md bg-dark" 
-style="
-    width: 400px; 
-    color: whitesmoke;
-    margin-top: 15px;
-    border-radius: 15px;
-"> 
+<div id="showAsgn">
     <form action="/assignments/{{assignment._id}}?_method=PUT" method="POST">
         <fieldset>
             <legend>Update {{assignment.date | date: "%B %d, %Y"}}</legend>
@@ -68,9 +61,13 @@ style="
                 value="{{assignment.notes}}"
             ></textarea> 
         </fieldset>
-        <div class="field-group">
-            <input type="submit" value="Update" class="btn btn-success"> 
-            <a href="/assignments/{{assignment._id}}" class="btn btn-warning">Nevermind</a>
+        <div class="field-group" style="margin: 5px">
+            <input 
+                type="submit" 
+                value="Update" 
+                class="btn btn-success"
+            > 
+            <a href="/assignments/{{assignment._id}}" class="btn btn-secondary">Nevermind</a>
         </div>
     </form>
 </div>
