@@ -51,16 +51,18 @@ router.post('/login', async (req, res) => {
                      res.redirect('/profile/new')
                     }
                 } else {
-                    res.json({ error: 'username or password incorrect' })
+                    //res.json({ error: 'username or password incorrect' })
+                    res.json({ error: 'invalid login' })
                 }
             } else {
-                res.json({ error: 'user does not exist' })
+                //res.json({ error: 'user does not exist' })
+                res.json({ error: 'invalid login' })
             }
         })
         .catch(error => {
             console.log(error)
-            //res.json(error)
-            res.send("invalid login")
+            res.json(error)
+            //res.send(error)
         })
 })
 
