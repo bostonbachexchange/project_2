@@ -24,7 +24,6 @@
         { teacher: "Beethoven", date: "07/9/2022", technique: "Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
         { teacher: "Beethoven", date: "07/10/2022", technique: "Bb, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
         { teacher: "Beethoven", date: "07/11/2022", technique: "Ab, Eb, C#, F, B, E, A, D, G, C Major Scales", notes: 'memorize, one octave, hands separate', instrument: "🎹" },
-    
       ]
 
       // when we seed data, we usually clear out the db first

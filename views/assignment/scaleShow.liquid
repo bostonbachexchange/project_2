@@ -1,0 +1,34 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div id="showAsgn">
+    <!-- name: String,
+    letterNames: String,
+    mode: String,
+    LHfingerings: String,
+    RHfingerings: String,
+    numberOfAccidentals: String,
+    keySignature: String,
+    keyboardImage: String,
+    steps: String, -->
+    <ul>
+        <p><strong>Name: </strong>{{scale.name}}</p>
+        <hr>
+        <p><strong>Notes: </strong>{{scale.letterNames}}</p>
+        <hr>
+        <p><strong>Left Hand: </strong>{{scale.LHfingerings}}</p>
+        <hr>
+        <p><strong>Right Hand: </strong>{{scale.RHfingerings}}</p>
+        <hr>
+        <p><strong>Number of Sharps of Flats: </strong>{{scale.numberOfAccidentals}}</p>
+        <hr>
+        <p><strong>Steps: </strong>{{scale.steps}}</p>
+        <hr>
+        <!-- <a class="btn btn-secondary" href="/assignments/{{assignment._id}}/edit" style="width: 40%;">Edit Assignment</a> -->
+        <a style="width: 40%;" class="btn btn-secondary" href="/assignments/scales">Back</a>
+    </ul>
+</div>
+<form action="/assignments/{{assignment._id}}?_method=DELETE" method="POST" style="margin-right: 25%; margin-bottom: 15px; text-align: end;">
+    <input type="submit" value="Delete" >
+</form>
+{% endblock %}
