@@ -24,15 +24,15 @@
                 <!--Check if user is logined in, if logged in logged in TRUE, show  -->
                 {% if loggedIn %}
                 <ul class="navbar-nav">
+                    <li><a href="/assignments/index" class="nav-link text-light btn"><span style="color: rgb(247, 163, 163);"><span style="color: yellow;">{{displayName}}'s</span> Lessons</span></a></li> 
+                    <!-- Check if user is logged in, if TRUE, show -->
+                        <li><a href="/assignments/new" class="nav-link text-light btn">New Assignment</a></li>
+                        <!-- Check if user is logged in, if TRUE, show -->
+                        <li><a href="/assignments/scales" class="nav-link text-light btn"><span style="color: rgb(123, 255, 7);">Scales</span></a></li> 
+                        <!-- Check if user is logged in, if TRUE, show -->
+                        <li><a href="/assignments/studio" class="nav-link text-light btn"><span style="color: whitesmoke;">Studio Assignments</span></a></li> 
                 <!-- Check if user is logged in, if TRUE, show -->
                     <li><a href="/profile/show" class="nav-link text-light btn">Profile<span style="color: yellow;">{{displayName}}</span></a></li>
-                    <!-- Check if user is logged in, if TRUE, show -->
-                    <li><a href="/assignments/studio" class="nav-link text-light btn"><span style="color: whitesmoke;">Studio Assignments</span></a></li> 
-                    <!-- Check if user is logged in, if TRUE, show -->
-                    <li><a href="/assignments/scales" class="nav-link text-light btn"><span style="color: whitesmoke;">Scales</span></a></li> 
-                    <li><a href="/assignments/index" class="nav-link text-light btn"><span style="color: rgb(247, 163, 163);"><span style="color: yellow;">{{displayName}}'s</span> Lessons</span></a></li> 
-                <!-- Check if user is logged in, if TRUE, show -->
-                    <li><a href="/assignments/new" class="nav-link text-light btn">New Assignment</a></li>
             </ul> 
             <ul class="navbar-nav navbar-pull-right">
                 <a href="/users/logout" style="color: white" class="nav-link text-light btn"> <span style="color: rgb(247, 163, 163);">Log out</span></a>

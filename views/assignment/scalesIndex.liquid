@@ -3,16 +3,16 @@
 {% block content %}
 <div>
     <hr>
-    <h2 class="bg-dark" style="color: white; border: 3px solid white; border-radius: 15px; text-align: center;">Scales</h2>
+    <h2 class="bg-dark" style="color: white; border: 3px solid white; border-radius: 15px; text-align: center;">Major Scales</h2>
     <hr>
     {% for scale in scales %}
     <div class="container" style="border: 2px solid black">
         <div class="row bg-light">
             <div class="col-sm-1.5" style="margin: auto; text-align: left;">
-                {{scale.name}}
+                
             </div>
             <div style="margin: 18px;" class="col-sm-4">
-                <a href="/assignments/scale/{{scale._id}}" style="color: rgb(247, 163, 163);" class="btn bg-dark">Show More</a>
+                <a href="/assignments/scale/{{scale._id}}" style="color: rgb(123, 255, 7);" class="btn bg-dark">{{scale.name}} Major Scale</a>
             </div>
             <div class="col-sm" style="margin: auto; text-align: left;">
                 {{scale.letterNames}}
